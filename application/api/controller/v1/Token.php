@@ -58,7 +58,7 @@ class Token extends Controller
      * @apiVersion 1.0.1
      * @apiDescription CMS退出当前账号登陆。
      * @apiExample {get}  请求样例:
-     * https://tonglingok.com/api/v1/token/loginOut
+     * http://shop.tonglingok.com/api/v1/token/loginOut
      * @apiSuccessExample {json} 返回样例:
      *{"msg":"ok","errorCode":0}
      * @apiSuccess (返回参数说明) {int} errorCode 错误码： 0表示操作成功无错误
@@ -79,7 +79,7 @@ class Token extends Controller
      * @apiVersion 1.0.1
      * @apiDescription  微信用户登录获取token
      * @apiExample {get}  请求样例:
-     * https://tonglingok.com/api/v1/token/user?code=mdksk
+     * http://shop.tonglingok.com/api/v1/token/user?code=mdksk
      * @apiParam (请求参数说明) {String} code    小程序code
      * @apiSuccessExample {json} 返回样例:
      *{"msg":"ok","errorCode":0,"data":{"token":"f4ad56e55cad93833180186f22586a08","type":1,"phone":"18956225230"}}

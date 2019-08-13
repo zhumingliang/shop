@@ -51,64 +51,7 @@ class User extends BaseController
         return json(new SuccessMessage());
     }
 
-    /**
-     * @api {POST} /api/v1/user/bindPhone -绑定手机号小程序客户端/公众号客户端
-     * @apiGroup  COMMON
-     * @apiVersion 1.0.1
-     * @apiDescription  小程序客户端/公众号客户端
-     * @apiExample {post}  请求样例:
-     *    {
-     *       "phone": "18956225230",
-     *       "code": "34982"
-     *       "scene": 1
-     *     }
-     * @apiParam (请求参数说明) {String} phone  用户输入手机号
-     * @apiParam (请求参数说明) {String} code   用户输入验证码
-     * @apiParam (请求参数说明) {int} scene   验证类别：1|小程序验证；2|公众号验证
-     *
-     * @apiSuccessExample {json} 返回样例:
-     *{"msg":"ok","errorCode":0,"data"{"ticket:1","name":"","time_begin":"","time_end":"","money":""}}
-     * @apiSuccess (返回参数说明) {int} errorCode 错误码： 0表示操作成功无错误
-     * @apiSuccess (返回参数说明) {String} msg 信息描述
-     * @apiSuccess (返回参数说明) {int} ticket 是否有优惠券发放：1|有；2|没有
-     * @apiSuccess (返回参数说明) {string} name 优惠券名称
-     * @apiSuccess (返回参数说明) {string} time_begin 优惠券有效期开始时间
-     * @apiSuccess (返回参数说明) {string} time_end 优惠券有效期结束时间
-     * @apiSuccess (返回参数说明) {string} money 优惠券金额
-     *
-     */
-    public function bindPhone()
-    {
-        $params = $this->request->param();
-        $ticket = (new UserInfoService('', ''))->bindPhone($params);
-        return json(new SuccessMessageWithData(['data' => $ticket]));
-    }
 
-
-    /**
-     * @api {POST} /api/v1/user/check/bind 公众号客户端检测用户是否绑定手机号
-     * @apiGroup  PUBLIC
-     * @apiVersion 1.0.1
-     * @apiDescription  公众号客户端检测用户是否绑定手机号
-     * @apiSuccessExample {json} 返回样例:
-     *{"msg":"ok","errorCode":0,"data"{"ticket:1","name":"","time_begin":"","time_end":"","money":""}}
-     * @apiSuccess (返回参数说明) {int} errorCode 错误码： 0表示操作成功无错误
-     * @apiSuccess (返回参数说明) {String} msg 信息描述
-     * @apiSuccess (返回参数说明) {int} bind 否绑定手机号：1|有；2|没有
-     *
-     */
-    public function checkBind()
-    {
-        $u_id = \app\api\service\Token::getCurrentUid();
-        $user = UserPublicT::get($u_id);
-        if (empty($user->phone)) {
-            $res = 2;
-        } else {
-            $res = 1;
-        }
-        return json(new SuccessMessageWithData(['data' => ['bind' => $res]]));
-
-    }
 
     /**
      * @api {GET} /api/v1/user/login/out  小程序客户端-注销登录
@@ -116,7 +59,7 @@ class User extends BaseController
      * @apiVersion 1.0.1
      * @apiDescription 小程序客户端-注销登录
      * @apiExample {get}  请求样例:
-     * https://tonglingok.com/api/v1/user/login/out
+     * http://shop.tonglingok.com/api/v1/user/login/out
      * @apiSuccessExample {json} 返回样例:
      *{"msg":"ok","errorCode":0}
      * @apiSuccess (返回参数说明) {int} errorCode 错误码： 0表示操作成功无错误
@@ -125,8 +68,6 @@ class User extends BaseController
      */
     public function loginOut()
     {
-        //清除用户手机号
-        UserT::update(['phone' => ''], ['id' => \app\api\service\Token::getCurrentUid()]);
         $token = Request::header('token');
         Cache::rm($token);
         return json(new SuccessMessage());
@@ -138,7 +79,7 @@ class User extends BaseController
      * @apiVersion 1.0.1
      * @apiDescription   CMS管理端-用户管理获取用户列表
      * @apiExample {get}  请求样例:
-     * https://tonglingok.com/api/v1/users?page=1&size=10&name=''&time_begin=''&time_end=''&phone=''&money_min=1&money_max=100&count_min=0&count_max=9
+     * http://shop.tonglingok.com/api/v1/users?page=1&size=10&name=''&time_begin=''&time_end=''&phone=''&money_min=1&money_max=100&count_min=0&count_max=9
      * @apiParam (请求参数说明) {int} page 当前页码
      * @apiParam (请求参数说明) {int} size 每页多少条数据
      * @apiParam (请求参数说明) {String} name 用户名称
