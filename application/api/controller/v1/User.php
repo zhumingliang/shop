@@ -52,46 +52,6 @@ class User extends BaseController
     }
 
     /**
-     * @api {POST} /api/v1/user/public/info 保存微信公众号用户信息
-     * @apiGroup  PUBLIC
-     * @apiVersion 1.0.1
-     * @apiDescription  后台用户登录
-     * @apiExample {post}  请求样例:
-     *    {
-     *       "openid": "wx4f4bc4dec97d474b",
-     *       "nickname": "",
-     *       "sex": "",
-     *       "city": "",
-     *       "county": "",
-     *       "province": "",
-     *       "language": "",
-     *       "headimgurl": "",
-     *     }
-     * @apiParam (请求参数说明) {String} openid    加密算法的初始向量
-     * @apiParam (请求参数说明) {String} nickname   昵称
-     * @apiParam (请求参数说明) {String} sex   性别
-     * @apiParam (请求参数说明) {String} city  市
-     * @apiParam (请求参数说明) {String} county  国家
-     * @apiParam (请求参数说明) {String} province  省
-     * @apiParam (请求参数说明) {String} headimgurl   头像
-     * @apiSuccessExample {json} 返回样例:
-     *{"msg":"ok","errorCode":0}
-     * @apiSuccess (返回参数说明) {int} errorCode 错误码： 0表示操作成功无错误
-     * @apiSuccess (返回参数说明) {String} msg 信息描述
-     *
-     */
-    public function userPublicInfo()
-    {
-        $params = $this->request->param();
-        $u_id = \app\api\service\Token::getCurrentUid();
-        $user = UserPublicT::update($params, ['id' => $u_id]);
-        if (!$user) {
-            throw new UpdateException();
-        }
-        return json(new SuccessMessage());
-    }
-
-    /**
      * @api {POST} /api/v1/user/bindPhone -绑定手机号小程序客户端/公众号客户端
      * @apiGroup  COMMON
      * @apiVersion 1.0.1

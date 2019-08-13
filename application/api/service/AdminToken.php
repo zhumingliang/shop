@@ -13,13 +13,13 @@ use think\facade\Cache;
 class AdminToken extends Token
 {
     protected $account;
-    protected $pwd;
+    protected $passwd;
 
 
-    function __construct($account, $pwd)
+    function __construct($account, $passwd)
     {
         $this->account = $account;
-        $this->pwd = $pwd;
+        $this->passwd = $passwd;
     }
 
     /**
@@ -34,7 +34,7 @@ class AdminToken extends Token
                 ->where('state', CommonEnum::STATE_IS_OK)
                 ->find();
 
-            if (is_null($admin) || (sha1($this->pwd) != $admin->pwd)) {
+            if (is_null($admin) || (sha1($this->passwd) != $admin->passwd)) {
                 throw new TokenException([
                     'msg' => '账号或密码不正确',
                     'errorCode' => 30000
@@ -89,11 +89,9 @@ class AdminToken extends Token
 
         $cachedValue = [
             'u_id' => $admin->id,
-            'phone' => $admin->phone,
-            'username' => $admin->username,
+            'role' => $admin->role,
             'account' => $admin->account,
             'grade' => $admin->grade,
-            'type' => $admin->grade == 1 ? 'manager' : 'insurance'
         ];
         return $cachedValue;
     }
