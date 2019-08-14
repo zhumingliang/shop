@@ -367,16 +367,16 @@
         },
         {
             "name": "overtrue/wechat",
-            "version": "4.1.31",
+            "version": "4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/overtrue/wechat.git",
-                "reference": "e11452a0e97a8bbe5f45886b394ace8e20a48cd7"
+                "reference": "426ea825664bcb1078f59a060ac07645e1e6fd9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/overtrue/wechat/zipball/e11452a0e97a8bbe5f45886b394ace8e20a48cd7",
-                "reference": "e11452a0e97a8bbe5f45886b394ace8e20a48cd7",
+                "url": "https://api.github.com/repos/overtrue/wechat/zipball/426ea825664bcb1078f59a060ac07645e1e6fd9f",
+                "reference": "426ea825664bcb1078f59a060ac07645e1e6fd9f",
                 "shasum": ""
             },
             "require": {
@@ -387,7 +387,7 @@
                 "guzzlehttp/guzzle": "^6.2",
                 "monolog/monolog": "^1.22",
                 "overtrue/socialite": "~2.0",
-                "php": ">=7.0",
+                "php": ">=7.1",
                 "pimple/pimple": "^3.0",
                 "psr/simple-cache": "^1.0",
                 "symfony/cache": "^3.3 || ^4.3",
@@ -395,10 +395,15 @@
                 "symfony/psr-http-message-bridge": "^0.3 || ^1.0"
             },
             "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.15",
                 "mikey179/vfsstream": "^1.6",
                 "mockery/mockery": "^1.0",
-                "overtrue/phplint": "dev-master",
-                "phpunit/phpunit": "~6.5"
+                "phpstan/phpstan": "^0.11.12",
+                "phpunit/phpunit": "~6.5",
+                "symfony/event-dispatcher": "^4.0"
+            },
+            "suggest": {
+                "symfony/event-dispatcher": "Required to use EasyWeChat events component (^4.0)."
             },
             "type": "library",
             "autoload": {
@@ -427,7 +432,7 @@
                 "weixin",
                 "weixin-sdk"
             ],
-            "time": "2019-07-10T06:55:12+00:00"
+            "time": "2019-08-13T11:53:50+00:00"
         },
         {
             "name": "phpoffice/phpexcel",

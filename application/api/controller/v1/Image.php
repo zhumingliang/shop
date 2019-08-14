@@ -18,7 +18,7 @@ class Image extends BaseController
      * @apiDescription  用file控件上传excel ，文件名称为：image
      * @apiSuccessExample {json} 返回样例:
      * {"msg":"ok","errorCode":0,"code":200,"data":{"url":""}
-     * @apiSuccess (返回参数说明) {int} error_code 错误代码 0 表示没有错误
+     * @apiSuccess (返回参数说明) {int} errorCode 错误代码 0 表示没有错误
      * @apiSuccess (返回参数说明) {String} msg 操作结果描述
      * @apiSuccess (返回参数说明) {String} url 图片地址
      */
