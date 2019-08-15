@@ -120,7 +120,7 @@ class Banner extends BaseController
      * @apiVersion 1.0.1
      * @apiDescription  小程序端-获取轮播图
      * @apiExample {get}  请求样例:
-     * http://mengant.cn/api/v1/banners/mini
+     * http://shop.tonglingok.com/api/v1/banners/mini
      * @apiSuccessExample {json} 返回样例:
      * {"msg":"ok","errorCode":0,"code":200,"data":[{"id":1,"url":"http:\/\/a.png","create_time":"2019-08-15 11:25:54","sort":1,"title":"first"},{"id":2,"url":"http:\/\/2.png","create_time":"2019-08-15 11:27:01","sort":2,"title":"second"}]}
      * @apiSuccess (返回参数说明) {int} errorCode 错误代码 0 表示没有错误
@@ -148,7 +148,7 @@ class Banner extends BaseController
      * @apiVersion 1.0.1
      * @apiDescription  CMS管理端-获取轮播图列表
      * @apiExample {get}  请求样例:
-     * http://mengant.cn/api/v1/banners/cms?page=1&size=20
+     * http://shop.tonglingok.com/api/v1/banners/cms?page=1&size=20
      * @apiParam (请求参数说明) {int} page 当前页码
      * @apiParam (请求参数说明) {int} size 每页多少条数据
      * @apiSuccessExample {json} 返回样例:
