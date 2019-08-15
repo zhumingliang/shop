@@ -18,7 +18,7 @@ class ImageService
         if (!$info) {
             throw new SaveException();
         }
-        return ['url' => '/static/image/' . $info->getSaveName()];
+        return ['url' => config('setting.domain').'/static/image/' . $info->getSaveName()];
     }
 
 }

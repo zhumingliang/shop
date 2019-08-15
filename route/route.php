@@ -29,3 +29,13 @@ Route::post('api/:version/category/update', 'api/:version.Category/update');
 Route::get('api/:version/categories/cms', 'api/:version.Category/CmsCategories');
 Route::get('api/:version/categories', 'api/:version.Category/Categories');
 Route::get('api/:version/category/sons', 'api/:version.Category/categorySons');
+
+Route::post('api/:version/product/save', 'api/:version.Product/save');
+Route::post('api/:version/product/handel', 'api/:version.Product/handel');
+Route::post('api/:version/product/show', 'api/:version.Product/show');
+Route::post('api/:version/product/update', 'api/:version.Product/update');
+Route::get('api/:version/products/cms', 'api/:version.Product/CMSProducts');
+Route::get('api/:version/product', 'api/:version.Product/product');
+Route::get('api/:version/products/index', 'api/:version.Product/indexProducts');
+Route::get('api/:version/products/mini', 'api/:version.Product/miniProducts');
+
