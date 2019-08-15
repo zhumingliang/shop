@@ -39,3 +39,8 @@ Route::get('api/:version/product', 'api/:version.Product/product');
 Route::get('api/:version/products/index', 'api/:version.Product/indexProducts');
 Route::get('api/:version/products/mini', 'api/:version.Product/miniProducts');
 
+Route::post('api/:version/banner/save', 'api/:version.Banner/save');
+Route::post('api/:version/banner/handel', 'api/:version.Banner/handel');
+Route::post('api/:version/banner/update', 'api/:version.Banner/update');
+Route::get('api/:version/banners/mini', 'api/:version.Banner/miniBanners');
+Route::get('api/:version/banners/cms', 'api/:version.Banner/CMSBanners');
