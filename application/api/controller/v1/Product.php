@@ -42,6 +42,11 @@ class Product extends BaseController
      *       "is_hot":2,
      *       "is_new":2,
      *       "cost":0,
+     *       "primary_distribution":5,
+     *       "secondary_distribution":10,
+     *       "first_star":5,
+     *       "second_star":10,
+     *       "third_star":15,
      *     }
      * @apiParam (请求参数说明) {int} c_id  商品分类id
      * @apiParam (请求参数说明) {String} image  商品主图地址
@@ -62,6 +67,11 @@ class Product extends BaseController
      * @apiParam (请求参数说明) {String} description  描述
      * @apiParam (请求参数说明) {int} ficti  虚拟销量
      * @apiParam (请求参数说明) {int} browse  浏览量
+     * @apiParam (请求参数说明) {int} primary_distribution  一级分销佣金比例
+     * @apiParam (请求参数说明) {int} secondary_distribution  二级分销佣金比例
+     * @apiParam (请求参数说明) {int} first_star   一星店主佣金比例
+     * @apiParam (请求参数说明) {int} second_star   二星店主佣金比例
+     * @apiParam (请求参数说明) {int} third_star  三星店主佣金比例
      * @apiParam (请求参数说明) {String} unit  商品单位
      * @apiSuccessExample {json} 返回样例:
      *{"msg":"ok","errorCode":0}
@@ -103,6 +113,11 @@ class Product extends BaseController
      *       "is_hot":2,
      *       "is_new":2,
      *       "cost":0,
+     *       "primary_distribution":5,
+     *       "secondary_distribution":10,
+     *       "first_star":5,
+     *       "second_star":10,
+     *       "third_star":15,
      *     }
      * @apiParam (请求参数说明) {int} id  商品id
      * @apiParam (请求参数说明) {int} c_id  商品分类id
@@ -125,6 +140,11 @@ class Product extends BaseController
      * @apiParam (请求参数说明) {int} ficti  虚拟销量
      * @apiParam (请求参数说明) {int} browse  浏览量
      * @apiParam (请求参数说明) {String} unit  商品单位
+     * @apiParam (请求参数说明) {int} primary_distribution  一级分销佣金比例
+     * @apiParam (请求参数说明) {int} secondary_distribution  二级分销佣金比例
+     * @apiParam (请求参数说明) {int} first_star   一星店主佣金比例
+     * @apiParam (请求参数说明) {int} second_star   二星店主佣金比例
+     * @apiParam (请求参数说明) {int} third_star  三星店主佣金比例
      * @apiSuccessExample {json} 返回样例:
      *{"msg":"ok","errorCode":0}
      * @apiSuccess (返回参数说明) {int} errorCode 错误码： 0表示操作成功无错误
@@ -336,7 +356,6 @@ class Product extends BaseController
         $type = Request::param('type');
         $products = (new ProductService())->miniProducts($page, $size, $type);
         return json(new SuccessMessageWithData(['data' => $products]));
-
 
     }
 
