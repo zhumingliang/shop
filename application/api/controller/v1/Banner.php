@@ -148,7 +148,7 @@ class Banner extends BaseController
      * @apiVersion 1.0.1
      * @apiDescription  CMS管理端-获取轮播图列表
      * @apiExample {get}  请求样例:
-     * http://mengant.cn/api/v1/banner/cms?page=1&size=20
+     * http://mengant.cn/api/v1/banners/cms?page=1&size=20
      * @apiParam (请求参数说明) {int} page 当前页码
      * @apiParam (请求参数说明) {int} size 每页多少条数据
      * @apiSuccessExample {json} 返回样例:
